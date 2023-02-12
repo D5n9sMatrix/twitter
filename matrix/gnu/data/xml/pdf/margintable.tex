@@ -1,0 +1,138 @@
+%\VignetteIndexEntry{xtable margintable}
+%\VignetteKeywords{LaTeX, HTML, table, margintable}
+% !Rnw weave = knitr
+% \VignetteEngine{knitr::knitr}
+
+\documentclass{tufte-handout}\usepackage[]{graphicx}\usepackage[]{xcolor}
+% maxwidth is the original width if it is less than linewidth
+% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+
+
+\title{
+A Margin Table Example
+}
+\author{David J. Scott}
+
+
+
+
+
+\usepackage{rotating}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{hyperref}
+\usepackage{fancyvrb}
+\fvset{fontsize=\normalsize}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+\section{The Example}
+\label{sec:example}
+
+This document uses the Tufte handout \LaTeX\ document style. This is
+specified by the use of the document class as
+\Verb|\documentclass{tufte-handout}|.
+
+The Tufte-\LaTeX\ document classes define a style similar to the
+style Edward Tufte uses in his books and handouts.  Tufte's style is known
+for its extensive use of sidenotes, tight integration of graphics with
+text, and well-set typography.
+
+One of the most prominent and distinctive features of this style is the
+extensive use of sidenotes.  There is a wide margin to provide ample room
+for sidenotes and small figures.  Any \Verb|\footnote|s will automatically
+be converted to sidenotes.
+
+Here is an example of a margin table, suggested by Felix Sch\"onbrodt
+\Verb|<nicebread@gmx.net>|. I am not sure about its usefullness in
+practice however. Note that \Verb|latex.environments = ""| avoids the
+default option of tables being centered, which in this example would
+lead to the caption not being directly under the table. Most
+importantly, \Verb|table.placement = NULL| is required to ensure that
+the default table placement options \Verb|[ht]| being inserted after
+\Verb|\begin{margintable}|. This is necessary because the margintable
+  environment does not allow placement options like \Verb|[ht]|.
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{library}\hlstd{(xtable)}
+\hlstd{x} \hlkwb{<-} \hlkwd{matrix}\hlstd{(}\hlkwd{rnorm}\hlstd{(}\hlnum{6}\hlstd{),} \hlkwc{ncol} \hlstd{=} \hlnum{2}\hlstd{)}
+\hlstd{x.small} \hlkwb{<-} \hlkwd{xtable}\hlstd{(x,} \hlkwc{label} \hlstd{=} \hlstr{'tabsmall'}\hlstd{,} \hlkwc{caption} \hlstd{=} \hlstr{'A margin table'}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+\begin{kframe}
+\begin{alltt}
+\hlkwd{print}\hlstd{(x.small,}\hlkwc{floating.environment}\hlstd{=}\hlstr{'margintable'}\hlstd{,}
+      \hlkwc{latex.environments} \hlstd{=} \hlstr{""}\hlstd{,}
+      \hlkwc{table.placement} \hlstd{=} \hlkwa{NULL}\hlstd{)}
+\end{alltt}
+\end{kframe}% latex table generated in R 4.1.2 by xtable 1.8-4 package
+% Wed Feb  1 01:01:27 2023
+\begin{margintable}
+\begin{tabular}{rrr}
+  \hline
+ & 1 & 2 \\ 
+  \hline
+1 & 0.96 & 1.18 \\ 
+  2 & -0.35 & 0.58 \\ 
+  3 & 0.57 & 0.48 \\ 
+   \hline
+\end{tabular}
+\caption{A margin table} 
+\label{tabsmall}
+\end{margintable}
+
+
+\end{document}

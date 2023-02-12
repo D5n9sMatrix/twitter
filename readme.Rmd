@@ -1,0 +1,506 @@
+---
+title: "Twitter Comprehensive Talk Packages"
+output: github_document
+---
+
+```r
+<!-- . -->
+<!-- ├── license -->
+<!-- ├── matrix -->
+<!-- │   └── gnu -->
+<!-- │       ├── bin -->
+<!-- │       │   └── profvis::profvis -->
+<!-- │       │       ├── count.data.frame -->
+<!-- │       │       │   ├── group_by.data.frame -->
+<!-- │       │       │   │   ├── group_by_prepare -->
+<!-- │       │       │   │   └── grouped_df -->
+<!-- │       │       │   │       └── compute_groups -->
+<!-- │       │       │   │           ├── signal -->
+<!-- │       │       │   │           └── vec_split_id_order -->
+<!-- │       │       │   │               ├── new_list_of -->
+<!-- │       │       │   │               │   └── new_list_of0 -->
+<!-- │       │       │   │               │       └── new_vctr.R -->
+<!-- │       │       │   │               ├── vec_order.R -->
+<!-- │       │       │   │               └── vec_slice.R -->
+<!-- │       │       │   └── tally.data.frame -->
+<!-- │       │       ├── n -->
+<!-- │       │       │   ├── $.R -->
+<!-- │       │       │   ├── <Anonymous> -->
+<!-- │       │       │   │   ├── $.R -->
+<!-- │       │       │   │   ├── <GC>.R -->
+<!-- │       │       │   │   ├── [[.R -->
+<!-- │       │       │   │   ├── self$get_current_group.R -->
+<!-- │       │       │   │   └── [[.vctrs_list_of -->
+<!-- │       │       │   ├── <GC>.R -->
+<!-- │       │       │   └── peek_mask -->
+<!-- │       │       │       └── context_peek.R -->
+<!-- │       │       └── unnest_tokens -->
+<!-- │       │           ├── flatten_chr.R -->
+<!-- │       │           ├── stringr::str_to_lower -->
+<!-- │       │           │   └── stri_trans_tolower.R -->
+<!-- │       │           ├── tokenfunc -->
+<!-- │       │           │   └── tokenize_words.default.R -->
+<!-- │       │           ├── vec_rep_each.R -->
+<!-- │       │           └── vec_slice.R -->
+<!-- │       ├── c++ -->
+<!-- │       │   └── plogr.cpp -->
+<!-- │       ├── data -->
+<!-- │       │   ├── GUTINDEX.ALL -->
+<!-- │       │   ├── u1.dat -->
+<!-- │       │   └── xml -->
+<!-- │       │       ├── bitPerformance_files -->
+<!-- │       │       │   └── figure-gfm -->
+<!-- │       │       │       ├── unnamed-chunk-20-1.png -->
+<!-- │       │       │       ├── unnamed-chunk-22-1.png -->
+<!-- │       │       │       ├── unnamed-chunk-23-1.png -->
+<!-- │       │       │       ├── unnamed-chunk-5-1.png -->
+<!-- │       │       │       ├── unnamed-chunk-6-1.png -->
+<!-- │       │       │       └── unnamed-chunk-7-1.png -->
+<!-- │       │       ├── bitPerformance.md -->
+<!-- │       │       ├── bitPerformance.Rmd -->
+<!-- │       │       ├── clipr.md -->
+<!-- │       │       ├── clipr.Rmd -->
+<!-- │       │       ├── convexdoc.md -->
+<!-- │       │       ├── convexdoc.Rmd -->
+<!-- │       │       ├── convex.md -->
+<!-- │       │       ├── convex.Rmd -->
+<!-- │       │       ├── designTradeOffs.md -->
+<!-- │       │       ├── designTradeOffs.Rmd -->
+<!-- │       │       ├── diffobj.md -->
+<!-- │       │       ├── diffobj.Rmd -->
+<!-- │       │       ├── embedDiffs.md -->
+<!-- │       │       ├── embedDiffs.Rmd -->
+<!-- │       │       ├── future.md -->
+<!-- │       │       ├── futureRApp.md -->
+<!-- │       │       ├── futureRApp.Rmd -->
+<!-- │       │       ├── future.Rmd -->
+<!-- │       │       ├── gtable -->
+<!-- │       │       │   ├── gtable_arrange-1.png -->
+<!-- │       │       │   ├── gtable_from_layout-1.png -->
+<!-- │       │       │   ├── plot-1.png -->
+<!-- │       │       │   └── plot-2.png -->
+<!-- │       │       ├── gtable.md -->
+<!-- │       │       ├── gtable.Rmd -->
+<!-- │       │       ├── highr.md -->
+<!-- │       │       ├── highr.Rmd -->
+<!-- │       │       ├── internals.md -->
+<!-- │       │       ├── internals.Rmd -->
+<!-- │       │       ├── isobands_files -->
+<!-- │       │       │   └── figure-gfm -->
+<!-- │       │       │       ├── unnamed-chunk-1-1.png -->
+<!-- │       │       │       ├── unnamed-chunk-1-2.png -->
+<!-- │       │       │       ├── unnamed-chunk-2-1.png -->
+<!-- │       │       │       ├── unnamed-chunk-3-1.png -->
+<!-- │       │       │       └── unnamed-chunk-4-1.png -->
+<!-- │       │       ├── isobands.md -->
+<!-- │       │       ├── isobands.Rmd -->
+<!-- │       │       ├── overview.md -->
+<!-- │       │       ├── overview.Rmd -->
+<!-- │       │       ├── pdf -->
+<!-- │       │       │   ├── comparisons-concordance.tex -->
+<!-- │       │       │   ├── comparisons.log -->
+<!-- │       │       │   ├── comparisons.pdf -->
+<!-- │       │       │   ├── comparisons.Rnw -->
+<!-- │       │       │   ├── comparisons.synctex.gz -->
+<!-- │       │       │   ├── comparisons.tex -->
+<!-- │       │       │   ├── designIssues-concordance.tex -->
+<!-- │       │       │   ├── designIssues.log -->
+<!-- │       │       │   ├── designIssues.Rnw -->
+<!-- │       │       │   ├── designIssues.tex -->
+<!-- │       │       │   ├── fig--024.pdf -->
+<!-- │       │       │   ├── fig--028.pdf -->
+<!-- │       │       │   ├── fig--036.pdf -->
+<!-- │       │       │   ├── fig--042.pdf -->
+<!-- │       │       │   ├── fig--046.pdf -->
+<!-- │       │       │   ├── fig--050.pdf -->
+<!-- │       │       │   ├── margintable-concordance.tex -->
+<!-- │       │       │   ├── margintable.log -->
+<!-- │       │       │   ├── margintable.pdf -->
+<!-- │       │       │   ├── margintable.Rnw -->
+<!-- │       │       │   ├── margintable.synctex.gz -->
+<!-- │       │       │   ├── margintable.tex -->
+<!-- │       │       │   ├── over-005.pdf -->
+<!-- │       │       │   ├── over-017.pdf -->
+<!-- │       │       │   ├── over-019.pdf -->
+<!-- │       │       │   ├── over-020.pdf -->
+<!-- │       │       │   ├── over-025.pdf -->
+<!-- │       │       │   ├── over-029.pdf -->
+<!-- │       │       │   ├── over-032.pdf -->
+<!-- │       │       │   ├── over.aux -->
+<!-- │       │       │   ├── over-concordance.tex -->
+<!-- │       │       │   ├── overlap.aux -->
+<!-- │       │       │   ├── overlap.bbl -->
+<!-- │       │       │   ├── overlap.blg -->
+<!-- │       │       │   ├── overlap-concordance.tex -->
+<!-- │       │       │   ├── overlap.log -->
+<!-- │       │       │   ├── overlap.pdf -->
+<!-- │       │       │   ├── overlap.Rnw -->
+<!-- │       │       │   ├── overlap-singleDensityCurve.pdf -->
+<!-- │       │       │   ├── overlap-smoothing.pdf -->
+<!-- │       │       │   ├── overlap.synctex.gz -->
+<!-- │       │       │   ├── overlap.tex -->
+<!-- │       │       │   ├── overlap-tigerMacaque2.pdf -->
+<!-- │       │       │   ├── over.log -->
+<!-- │       │       │   ├── over.pdf -->
+<!-- │       │       │   ├── over.Rnw -->
+<!-- │       │       │   ├── over.synctex.gz -->
+<!-- │       │       │   ├── over.tex -->
+<!-- │       │       │   ├── over.toc -->
+<!-- │       │       │   ├── overview-concordance.tex -->
+<!-- │       │       │   ├── overview.log -->
+<!-- │       │       │   ├── overview.pdf -->
+<!-- │       │       │   ├── overview.Rnw -->
+<!-- │       │       │   ├── overview.synctex.gz -->
+<!-- │       │       │   ├── overview.tex -->
+<!-- │       │       │   ├── partDeriv.aux -->
+<!-- │       │       │   ├── partDeriv.bbl -->
+<!-- │       │       │   ├── partDeriv.blg -->
+<!-- │       │       │   ├── partDeriv.lof -->
+<!-- │       │       │   ├── partDeriv.log -->
+<!-- │       │       │   ├── partDeriv.lot -->
+<!-- │       │       │   ├── partDeriv.pdf -->
+<!-- │       │       │   ├── partDeriv.Rnw -->
+<!-- │       │       │   ├── partDeriv.tex -->
+<!-- │       │       │   ├── Rplots.pdf -->
+<!-- │       │       │   ├── svmdoc.aux -->
+<!-- │       │       │   ├── svmdoc.bbl -->
+<!-- │       │       │   ├── svmdoc.blg -->
+<!-- │       │       │   ├── svmdoc-concordance.tex -->
+<!-- │       │       │   ├── svmdoc.log -->
+<!-- │       │       │   ├── svmdoc.pdf -->
+<!-- │       │       │   ├── svmdoc.Rnw -->
+<!-- │       │       │   ├── svmdoc.synctex.gz -->
+<!-- │       │       │   ├── svmdoc.tex -->
+<!-- │       │       │   ├── svmInternals-concordance.tex -->
+<!-- │       │       │   ├── svmInternals.log -->
+<!-- │       │       │   ├── svmInternals.pdf -->
+<!-- │       │       │   ├── svmInternals.Rnw -->
+<!-- │       │       │   ├── svmInternals.synctex.gz -->
+<!-- │       │       │   ├── svmInternals.tex -->
+<!-- │       │       │   ├── UrnTheory-concordance.tex -->
+<!-- │       │       │   ├── UrnTheory.log -->
+<!-- │       │       │   ├── UrnTheory.pdf -->
+<!-- │       │       │   ├── UrnTheory.Rnw -->
+<!-- │       │       │   ├── UrnTheory.synctex.gz -->
+<!-- │       │       │   └── UrnTheory.tex -->
+<!-- │       │       ├── profile.md -->
+<!-- │       │       ├── profile.Rmd -->
+<!-- │       │       ├── profiles.md -->
+<!-- │       │       ├── profiles.Rmd -->
+<!-- │       │       ├── progressr.md -->
+<!-- │       │       ├── progressr.Rmd -->
+<!-- │       │       ├── recipes.md -->
+<!-- │       │       ├── recipes.Rmd -->
+<!-- │       │       ├── rProjRoot.md -->
+<!-- │       │       ├── rProjRoot.Rmd -->
+<!-- │       │       ├── sass.md -->
+<!-- │       │       ├── sass.Rmd -->
+<!-- │       │       ├── simpleMemory.md -->
+<!-- │       │       └── simpleMemory.Rmd -->
+<!-- │       ├── html -->
+<!-- │       │   └── js -->
+<!-- │       │       ├── Electron -->
+<!-- │       │       │   ├── css -->
+<!-- │       │       │   │   └── icons.css -->
+<!-- │       │       │   ├── mathjax -->
+<!-- │       │       │   │   ├── config -->
+<!-- │       │       │   │   │   └── TeX-MML-AM_CHTML.js?V=2.7.6 -->
+<!-- │       │       │   │   ├── jax -->
+<!-- │       │       │   │   │   └── output -->
+<!-- │       │       │   │   │       └── HTML-CSS -->
+<!-- │       │       │   │   │           └── config.js?V=2.7.6 -->
+<!-- │       │       │   │   └── MathJax.js?config=TeX-MML-AM_CHTML -->
+<!-- │       │       │   ├── rstudio -->
+<!-- │       │       │   │   ├── 08D39E99E37116919A319FD90BD38C0E.cache.js -->
+<!-- │       │       │   │   ├── 1D1FF86B2B185D08BD1761C4692239BF.cache.js -->
+<!-- │       │       │   │   ├── 339D7523F4193E7F5E986EB3E4A315E5.cache.js -->
+<!-- │       │       │   │   ├── 3A832DE5313E0710510250E024CE01E0.cache.js -->
+<!-- │       │       │   │   ├── 4032CB57FF3A58D9FCAE4CBA2130587E.cache.js -->
+<!-- │       │       │   │   ├── 5B69FC9A48786232C983FE13456B9BB9.cache.js -->
+<!-- │       │       │   │   ├── 8F7951420339BE404651DAC70BD1C264.cache.css -->
+<!-- │       │       │   │   ├── 92667398D1615A4FDABC74237BBDC342.cache.js -->
+<!-- │       │       │   │   ├── A17593807FCAEB404A8229B8F38A0694.cache.css -->
+<!-- │       │       │   │   ├── AC5AADB35BD3AFF301FEFC583AAFE0E0.cache.js -->
+<!-- │       │       │   │   ├── AF0173AE882B4628401D1A30D7E18D3C.cache.js -->
+<!-- │       │       │   │   ├── BAC511A51BF31BEF7D9C5DFA48D12BFA.cache.js -->
+<!-- │       │       │   │   ├── help_frame -->
+<!-- │       │       │   │   │   └── help -->
+<!-- │       │       │   │   │       └── library -->
+<!-- │       │       │   │   │           └── stats -->
+<!-- │       │       │   │   │               └── R.css -->
+<!-- │       │       │   │   ├── plot_image_frame -->
+<!-- │       │       │   │   │   └── graphics -->
+<!-- │       │       │   │   ├── rstudio.nocache.js -->
+<!-- │       │       │   │   ├── theme -->
+<!-- │       │       │   │   │   └── default -->
+<!-- │       │       │   │   │       └── monokai.rstheme?dark=1&refresh=1 -->
+<!-- │       │       │   │   └── tutorial_frame -->
+<!-- │       │       │   └── theme -->
+<!-- │       │       │       └── default -->
+<!-- │       │       │           └── monokai.rstheme?dark=1&refresh=1 -->
+<!-- │       │       └── rstudio-0.js -->
+<!-- │       ├── image -->
+<!-- │       │   ├── admit-cells-department.png -->
+<!-- │       │   ├── admit-cells-department-students.png -->
+<!-- │       │   ├── admit-cells-students.png -->
+<!-- │       │   ├── alpha-down.png -->
+<!-- │       │   ├── alpha-pi.png -->
+<!-- │       │   ├── angle-math-number.png -->
+<!-- │       │   ├── angle.png -->
+<!-- │       │   ├── angle-z.png -->
+<!-- │       │   ├── ants-areas-10.png -->
+<!-- │       │   ├── ants-areas-11.png -->
+<!-- │       │   ├── ants-areas-2.png -->
+<!-- │       │   ├── ants-areas-3.png -->
+<!-- │       │   ├── ants-areas-4.png -->
+<!-- │       │   ├── ants-areas-5.png -->
+<!-- │       │   ├── ants-areas-6.png -->
+<!-- │       │   ├── ants-areas-7.png -->
+<!-- │       │   ├── ants-areas-8.png -->
+<!-- │       │   ├── ants-areas-9.png -->
+<!-- │       │   ├── ants-areas.png -->
+<!-- │       │   ├── arrow-model-center.png -->
+<!-- │       │   ├── arrows-index.png -->
+<!-- │       │   ├── arrows-model.png -->
+<!-- │       │   ├── beta-will.png -->
+<!-- │       │   ├── call-cells-index.png -->
+<!-- │       │   ├── candle-sepal-length.png -->
+<!-- │       │   ├── cell-boot-nuclear-black-plus.png -->
+<!-- │       │   ├── cell-boot-nuclear-black.png -->
+<!-- │       │   ├── cell-boot-path.png -->
+<!-- │       │   ├── cell-boot.png -->
+<!-- │       │   ├── cell-coords-center.png -->
+<!-- │       │   ├── cell-coords-sub.png -->
+<!-- │       │   ├── cell-coords-topic.png -->
+<!-- │       │   ├── cell-current-diff.png -->
+<!-- │       │   ├── cell-current.png -->
+<!-- │       │   ├── cell-dim-linear.png -->
+<!-- │       │   ├── cell-dim.png -->
+<!-- │       │   ├── cell-dist-2.png -->
+<!-- │       │   ├── cell-dist-3.png -->
+<!-- │       │   ├── cell-distance-2.png -->
+<!-- │       │   ├── cell-distance.png -->
+<!-- │       │   ├── cell-distnace-3.png -->
+<!-- │       │   ├── cell-dist.png -->
+<!-- │       │   ├── cell-equal.png -->
+<!-- │       │   ├── cell-fits.png -->
+<!-- │       │   ├── cell-gas-noise-2.png -->
+<!-- │       │   ├── cell-gas-noise-3.png -->
+<!-- │       │   ├── cell-gas-noise.png -->
+<!-- │       │   ├── cell-gt-2.png -->
+<!-- │       │   ├── cell-gt-3.png -->
+<!-- │       │   ├── cell-gt.png -->
+<!-- │       │   ├── cell-histograms.png -->
+<!-- │       │   ├── cell-index-point-value.png -->
+<!-- │       │   ├── cell-log-linear-2.png -->
+<!-- │       │   ├── cell-log-linear-3.png -->
+<!-- │       │   ├── cell-log-linear.png -->
+<!-- │       │   ├── cell-mid.png -->
+<!-- │       │   ├── cell-orthogonal.png -->
+<!-- │       │   ├── cell-pad-2.png -->
+<!-- │       │   ├── cell-pad-3.png -->
+<!-- │       │   ├── cell-pad.png -->
+<!-- │       │   ├── cell-papcat.png -->
+<!-- │       │   ├── cell-points.png -->
+<!-- │       │   ├── cell-relative.png -->
+<!-- │       │   ├── cell-rotation-linear-app.png -->
+<!-- │       │   ├── cell-rotation-linear-s31.png -->
+<!-- │       │   ├── cell-rotation-s31.png -->
+<!-- │       │   ├── cells-call-nuclear-plus.png -->
+<!-- │       │   ├── cells-call-nuclear.png -->
+<!-- │       │   ├── cells-cmd-scale.png -->
+<!-- │       │   ├── cells-dist-petal-pink-and-black.png -->
+<!-- │       │   ├── cells-nuclear-black-plus.png -->
+<!-- │       │   ├── cells-nuclear-black.png -->
+<!-- │       │   ├── cells-path-breakdown.png -->
+<!-- │       │   ├── cells-path-direct.png -->
+<!-- │       │   ├── cells-path-misbehaviour-index-y.png -->
+<!-- │       │   ├── cells-path-pink.png -->
+<!-- │       │   ├── cells-path-tukey-smoothers.png -->
+<!-- │       │   ├── cells-run-x-and-y-path.png -->
+<!-- │       │   ├── cells-run-x-and-y.png -->
+<!-- │       │   ├── cells-x-and-y-cmd-scale.png -->
+<!-- │       │   ├── cell-table-2.png -->
+<!-- │       │   ├── cell-table-3.png -->
+<!-- │       │   ├── cell-table-4.png -->
+<!-- │       │   ├── cell-table.png -->
+<!-- │       │   ├── circlemultiply.png -->
+<!-- │       │   ├── circlemultiply-zero-x.png -->
+<!-- │       │   ├── circleplus.png -->
+<!-- │       │   ├── circleplus-zero-plus.png -->
+<!-- │       │   ├── context-books.png -->
+<!-- │       │   ├── count-total.png -->
+<!-- │       │   ├── covariance-deaths.png -->
+<!-- │       │   ├── covariance-linear-series-2.png -->
+<!-- │       │   ├── covariance-linear-series.png -->
+<!-- │       │   ├── covariance-series-ideaths-2.png -->
+<!-- │       │   ├── covariance-series-ideaths.png -->
+<!-- │       │   ├── covariance-series-partial.png -->
+<!-- │       │   ├── cross-correlation.png -->
+<!-- │       │   ├── derivatives-math-number.png -->
+<!-- │       │   ├── dual-poly-grid.png -->
+<!-- │       │   ├── dual-poly-grid-table.png -->
+<!-- │       │   ├── dual-poly.png -->
+<!-- │       │   ├── ell-new-angle.png -->
+<!-- │       │   ├── emptyset-circle-angle-risk.png -->
+<!-- │       │   ├── emptyset.png -->
+<!-- │       │   ├── existential-ell.png -->
+<!-- │       │   ├── existential.png -->
+<!-- │       │   ├── expression-beta.png -->
+<!-- │       │   ├── expression.png -->
+<!-- │       │   ├── first-minutes.png -->
+<!-- │       │   ├── gas-linear.png -->
+<!-- │       │   ├── index.png -->
+<!-- │       │   ├── index-values-2.png -->
+<!-- │       │   ├── index-values-3.png -->
+<!-- │       │   ├── index-values.png -->
+<!-- │       │   ├── intpalette.png -->
+<!-- │       │   ├── intpalette-rainbow.png -->
+<!-- │       │   ├── isobands-draw-forms-2.png -->
+<!-- │       │   ├── isobands-draw-forms-3.png -->
+<!-- │       │   ├── isobands-draw-forms-4.png -->
+<!-- │       │   ├── isobands-draw-forms-5.png -->
+<!-- │       │   ├── isobands-draw-forms.png -->
+<!-- │       │   ├── language-RJane-Austen.png -->
+<!-- │       │   ├── leftangle-next.png -->
+<!-- │       │   ├── leftangle.png -->
+<!-- │       │   ├── lemma-cells-dist-speed.png -->
+<!-- │       │   ├── lollipop-index.png -->
+<!-- │       │   ├── lollipop-lambda.png -->
+<!-- │       │   ├── lollipop-sin-and-x.png -->
+<!-- │       │   ├── map-color-cell-2.png -->
+<!-- │       │   ├── map-color-cell.png -->
+<!-- │       │   ├── map-color.png -->
+<!-- │       │   ├── map-color-points-2.png -->
+<!-- │       │   ├── map-color-points.png -->
+<!-- │       │   ├── map-Iat-long.png -->
+<!-- │       │   ├── map-transparent.png -->
+<!-- │       │   ├── margin-cells.png -->
+<!-- │       │   ├── math-number.png -->
+<!-- │       │   ├── new-sum.png -->
+<!-- │       │   ├── partial-series-presidents.png -->
+<!-- │       │   ├── pch.png -->
+<!-- │       │   ├── perpendicular-face-us-polar.png -->
+<!-- │       │   ├── perpendicular.png -->
+<!-- │       │   ├── Popeye.png -->
+<!-- │       │   ├── Python-S3.png -->
+<!-- │       │   ├── rightangle-next.png -->
+<!-- │       │   ├── rightangle.png -->
+<!-- │       │   ├── rotatexy-angle.png -->
+<!-- │       │   ├── rotatexy-asp.png -->
+<!-- │       │   ├── rotatexy-center.png -->
+<!-- │       │   ├── rotatexy-empty.png -->
+<!-- │       │   ├── rotatexy-linear.png -->
+<!-- │       │   ├── rotatexy-midpoint.png -->
+<!-- │       │   ├── rotatexy.png -->
+<!-- │       │   ├── Rplot.png -->
+<!-- │       │   ├── S4-histogram-frequency-zero.png -->
+<!-- │       │   ├── second-minutes.png -->
+<!-- │       │   ├── series-presidents.png -->
+<!-- │       │   ├── shadepalette.png -->
+<!-- │       │   ├── smile-child.png -->
+<!-- │       │   ├── smiles-cells-2.png -->
+<!-- │       │   ├── smiles-cells.png -->
+<!-- │       │   ├── smiles-cells-sin.png -->
+<!-- │       │   ├── smiles-child-2.png -->
+<!-- │       │   ├── smiles-points.png -->
+<!-- │       │   ├── smooth-presidents.png -->
+<!-- │       │   ├── sponsorship-star-fire.png -->
+<!-- │       │   ├── star-fire.png -->
+<!-- │       │   ├── suchinal-ell.png -->
+<!-- │       │   ├── suchinal.png -->
+<!-- │       │   ├── svm-cell-nuclear-floor-plus.png -->
+<!-- │       │   ├── svm-cells-dist-and-speed-linear.png -->
+<!-- │       │   ├── svm-cells-dist-and-speed.png -->
+<!-- │       │   ├── svm-cells-dist-iris.png -->
+<!-- │       │   ├── svm-cells-dist.png -->
+<!-- │       │   ├── svm-cell-settings-path-3.png -->
+<!-- │       │   ├── svm-cell-settings.png -->
+<!-- │       │   ├── svm-cells-length-width-linear-2.png -->
+<!-- │       │   ├── svm-cells-length-width-linear-3.png -->
+<!-- │       │   ├── svm-cells-length-width-linear.png -->
+<!-- │       │   ├── svm-cells-length-width-linear-points.png -->
+<!-- │       │   ├── svm-cells-length-width.png -->
+<!-- │       │   ├── svm-cells-nuclear-floor.png -->
+<!-- │       │   ├── svm-cells-nuclear-plus.png -->
+<!-- │       │   ├── svm-cells-nuclear.png -->
+<!-- │       │   ├── svm-cells-path-x-and-y.png -->
+<!-- │       │   ├── svm-cells-petal-lenght-width-linear-red.png -->
+<!-- │       │   ├── svm-cells-petal-length-width-linear-blue-2.png -->
+<!-- │       │   ├── svm-cells-petal-length-width-linear-blue.png -->
+<!-- │       │   ├── svm-cells-petal-length-width-linear-points.png -->
+<!-- │       │   ├── svm-cells-petal-length-width.png -->
+<!-- │       │   ├── svm-cells-settings-path-2.png -->
+<!-- │       │   ├── svm-cells-settings-path.png -->
+<!-- │       │   ├── svm-cells-x-and-y-path-2.png -->
+<!-- │       │   ├── svm-cells-x-and-y-path.png -->
+<!-- │       │   ├── svm-cell-x-and-y.png -->
+<!-- │       │   ├── svm-classification-plot.png -->
+<!-- │       │   ├── svm-classification.png -->
+<!-- │       │   ├── svm-graphic-rpois.png -->
+<!-- │       │   ├── svm-index-graphic-sort.png -->
+<!-- │       │   ├── svm-index-graphic-sort-points.png -->
+<!-- │       │   ├── svm-linear-sin-and-x.png -->
+<!-- │       │   ├── therefore.png -->
+<!-- │       │   ├── therefore-points.png -->
+<!-- │       │   ├── tukey-smoothers.png -->
+<!-- │       │   ├── universal.png -->
+<!-- │       │   ├── vec-axis.png -->
+<!-- │       │   ├── wave-angle.png -->
+<!-- │       │   ├── wave-linear-radio.png -->
+<!-- │       │   ├── wave-linear-radio-red.png -->
+<!-- │       │   ├── wave-linear-red-blue-green.png -->
+<!-- │       │   ├── wave-mountain-blue.png -->
+<!-- │       │   ├── wave-mountain-green.png -->
+<!-- │       │   └── wave-sin-and-cos.png -->
+<!-- │       ├── lib -->
+<!-- │       ├── profile -->
+<!-- │       │   ├── [[. -->
+<!-- │       │   ├── $.Rprofvis -->
+<!-- │       │   ├── call-angle -->
+<!-- │       │   │   └── tokenize_words.default -->
+<!-- │       │   ├── context-box -->
+<!-- │       │   │   └── twitter.Rprofvis -->
+<!-- │       │   ├── context_peek.Rprofvis -->
+<!-- │       │   ├── flatten_chr.Rprofvis -->
+<!-- │       │   ├── new_vctr.Rprofvis -->
+<!-- │       │   ├── self$get_current_group.Rprofvis -->
+<!-- │       │   ├── stri_trans_tolower.Rprofvis -->
+<!-- │       │   ├── vec_rep_each.Rprofvis -->
+<!-- │       │   └── vec_slice.Rprofvis -->
+<!-- │       └── test -->
+<!-- ├── readme_files -->
+<!-- │   └── figure-gfm -->
+<!-- │       └── pressure-1.png -->
+<!-- ├── readme.md -->
+<!-- ├── readme.Rmd -->
+<!-- ├── twitter.R -->
+<!-- ├── twitter.Rd -->
+<!-- └── twitter.Rproj -->
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## GitHub Documents
+
+This is an R Markdown format used for publishing markdown documents to GitHub. When you click the **Knit** button all R code chunks are run and a markdown file (.md) suitable for publishing to GitHub is generated.
+
+## Including Code
+
+You can include R code in the document as follows:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
